@@ -1,0 +1,45 @@
+#fh5co-content-section{
+    #add-discount-btn{
+        text-align: right;
+    }
+    table{
+        thead tr{
+            background: #b22222;
+        }
+        thead th{
+            color: #FFF;
+            padding: 5px 15px;
+        }
+        td{
+            padding: 5px 15px;
+        }
+        tr:nth-child(even){
+            background: #b22222;
+        }
+        tr:nth-child(even) td{
+            color: #FFF;
+        }
+        td.ctrl-btns{
+            button{
+                padding: 5px;
+                float: left;
+                margin-right: 10px;
+            }
+            .view{
+                background: #4bc68b;
+                color: #FFF;
+            }
+            .edit{
+                background: #6ba2e5;
+                color: #FFF;
+            }
+            .delete{
+                background: #a12023;
+                color: #FFF;
+            }
+        }
+    }
+}
+#edit-discount{
+    margin-top: 20px;
+}

@@ -1,0 +1,93 @@
+<div id="corporate-members">
+  <div class="fh5co-parallax">
+    <div class="fh5co-overlay"></div>
+      <div class="fh5co-parallax-cover" style="background-image: url(assets/images/slider1.jpg);" data-stellar-background-ratio="0.3">
+      <div class="desc container">
+        <div class="row">
+          <div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+            <div class="fh5co-intro fh5co-table-cell">
+              <h1 class="text-center">Dashboard</h1>
+              <h3>Welcome {{ currentUser }}!</h3>
+              <ul class="header-links">
+                <li><a routerLink="/corporate-profile">User Profile</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="fh5co-content-section">
+    <div class="container">
+      <div class="row">
+        <div style="text-align: left;" class="col-sm-6">
+          <h3>Your Discounts</h3>
+          <div id="discount-list" class="row">
+            <table cellpadding="5" cellspacing="5">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Amount</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let discount of discounts">
+                  <td>{{discount.name}}</td>
+                  <td><span *ngIf="discount.discount_type=='fixed'">PHP </span>{{discount.amount}}<span *ngIf="discount.discount_type=='percentage'">%</span></td>
+                  <td class="ctrl-btns">
+                    <button (click)="viewDiscount(discount.$key)" class="btn view"><i class="icon-magnifying-glass"></i></button>
+                    <button (click)="editDiscount(discount)" class="btn edit"><i class="icon-edit"></i></button>
+                    <button (click)="deleteDiscount(discount.$key)" class="btn delete"><i class="icon-trash2"></i></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+       <div class="col-sm-6">
+         <div id="add-discount-btn">
+            <a class="btn btn-primary" routerLink="/add-discount">Create Discount</a>
+         </div>
+          <!-- Edit Form -->
+          <div id="edit-discount" *ngIf="appState == 'edit' ">
+              <h3>Edit Discount</h3>
+              <form (submit)="updateDiscount()">
+                <div class="form-group">
+                  <label for="activeDiscountName">Name</label>
+                  <input type="text" placeholder="Discount Name" [(ngModel)]="activeDiscountName" name="activeDiscountName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                  <label for="activeDescription">Description</label>
+                  <input type="text" placeholder="Description" [(ngModel)]="activeDescription" name="activeDescription" class="form-control" required>
+                </div>
+                <div class="form-group">
+                <label>
+                  Discount Type<br/>
+                  <select name="activeDiscountType" class="form-control" [(ngModel)]="activeDiscountType" #discounttype>
+                    <option value="">Select Discount Type</option>
+                    <option value="fixed">Fixed Amount</option>
+                    <option value="percentage">Percentage</option>
+                  </select>
+                </label><br/>
+                </div>
+                <div class="form-group">
+                  <label for="activeAmount">Amount</label>
+                  <input type="text" name="activeAmount" placeholder="Amount" [(ngModel)]="activeAmount" class="form-control" required>
+                </div>
+                <button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Update Discount</button>
+              </form>
+          </div>
+          <!-- Edit Form -->
+          <!-- Discount Details -->
+          <div id="view-discount" *ngIf="appState == 'view' ">
+            <h3>{{activeDiscount.name}}</h3>
+            <p>{{activeDiscount.description}}<br/>
+            <span style="color: darkgreen"><span *ngIf="activeDiscount.discount_type=='fixed'">PHP </span>{{activeDiscount.amount}}<span *ngIf="activeDiscount.discount_type=='percentage'">%</span></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

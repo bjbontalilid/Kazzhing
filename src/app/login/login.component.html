@@ -1,145 +1,50 @@
-	<div id="fh5co-wrapper">
-	<div id="fh5co-page">
-
-<div id="fh5co-header">
-		<header id="fh5co-header-section">
-			<div class="container">
-				<div class="nav-header">
-					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-					<h1 id="fh5co-logo"><a routerLink="/">Dinggg.</a></h1>
-					<nav id="fh5co-menu-wrap" role="navigation">
-						<ul class="sf-menu" id="fh5co-primary-menu">
-							<li><a class="active" href="#">Browse Events</a></li>
-							<li><a  href="#">About Us</a></li>
-							<li>
-								<a href="#" class="fh5co-sub-ddown">FAQs</a>
-								<ul class="fh5co-sub-menu">
-									<li><a href="#">FAQs</a></li>
-								<li><a href="#">Help Center</a></li>
-                	<li><a href="#">How it works?</a></li>
-					
-								</ul>
-							</li>
-					
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">Contact</a></li>
-							<li><a routerLink="/login" >Login</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</header>
-		
-	</div>
-	<!-- end:fh5co-header -->
-	<div id="login">
-	<div  class="fh5co-parallax" style="background-image: url(assets/images/slider1.jpg);" data-stellar-background-ratio="0.3">
-		<div class="overlay-gradient"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
-					<div class="fh5co-intro fh5co-table-cell">
-						<h1 class="text-center">User Login</h1>
-						<p>Login to start adding your first event.</p>
+<div id="login">
+	<div class="fh5co-parallax">
+		<div class="fh5co-overlay"></div>
+		<div class="fh5co-parallax-cover" style="background-image: url(assets/images/slider1.jpg);" data-stellar-background-ratio="0.3">
+			<div class="desc container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+						<div class="fh5co-intro fh5co-table-cell">
+							<h1 class="text-center">User Login</h1>
+							<p>Login to start saving!</p>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div></div>
-
+	</div>
 	<div id="fh5co-contact-section">
 		<div class="container">
-		<div class="row">
-			<div class="col-md-4 col-md-offset-4">
-  <!--<img src="assets/images/lock.svg" id="lock">
-    <h3>User Login</h3>-->
-<span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
-    
- <form #formData='ngForm' (ngSubmit)="onSubmit(formData)">
-<div class="form-group">
-      <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="form-control" required>
-</div>
-<div class="form-group">
-      <input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
-</div>
-
-      <button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Log in</button>
-     <!-- <a routerLink="/signup" class="alc">Don't have an account?</a>-->
-  </form>
-<div class="row" style="margin-top: 1em;">
-	<div class="col-md-12">
-  <button (click)="loginFb()" id="fb" class="btn btn-primary">Login With Facebook</button>
-  </div>
-  <div class="col-md-12">
-  <button (click)="loginGoogle()" id="google" class="btn btn-primary">Login With Google</button>
-  <!--<button routerLink="/login-email" id="email">Email</button>-->
-		</div>
-  <a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
-   
-    <a routerLink="/home" id="goback">Go back</a>
-
-	</div>
-</div> 
-</div> 
-</div>
-</div> 
-
-
-	<footer id="footer" class="fh5co-bg-color">
-		<div class="container">
 			<div class="row">
-				<div class="col-md-3">
-					<div class="copyright">
-						<p><small>&copy; 2017 Ding by TinkerTech Inc. <br> All Rights Reserved. </small></p>
-					</div>
-				</div>
-				<div class="col-md-6">
-					<div class="row">
-						<div class="col-md-3">
-							<h3>Company</h3>
-							<ul class="link">
-								<li><a href="#">About Us</a></li>
-								<li><a href="#">Hotels</a></li>
-								<li><a href="#">Customer Care</a></li>
-								<li><a href="#">Contact Us</a></li>
-							</ul>
+				<div class="col-md-4 col-md-offset-4">
+					<span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+					<form #formData='ngForm' (ngSubmit)="onSubmit(formData,isUser)">
+						<div class="form-group">
+							<input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="form-control" required>
 						</div>
-						<div class="col-md-3">
-							<h3>Our Facilities</h3>
-							<ul class="link">
-								<li><a href="#">Resturant</a></li>
-								<li><a href="#">Bars</a></li>
-								<li><a href="#">Pick-up</a></li>
-								<li><a href="#">Swimming Pool</a></li>
-								<li><a href="#">Spa</a></li>
-								<li><a href="#">Gym</a></li>
-							</ul>
+						<div class="form-group">
+							<input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
+						</div>
+						<button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Login</button>
+     					<!-- <a routerLink="/signup" class="alc">Don't have an account?</a>-->
+					</form>
+					<div class="row" style="margin-top: 1em;">
+						<div class="col-md-6">
+							<button (click)="loginFb()" id="fb" class="btn btn-primary" style="width: 100%; font-size: 9px; background:#3b5998">Login With Facebook</button>
 						</div>
 						<div class="col-md-6">
-							<h3>Subscribe</h3>
-							<p>Sed cursus ut nibh in semper. Mauris varius et magna in fermentum. </p>
-							<form action="#" id="form-subscribe">
-								<div class="form-field">
-									<input type="email" placeholder="Email Address" id="email">
-									<input type="submit" id="submit" value="Send">
-								</div>
-							</form>
+							<button (click)="loginGoogle()" id="google" class="btn btn-primary" style="width: 100%; font-size: 9px; background:#d34836">Login With Google</button>
+							<!--<button routerLink="/login-email" id="email">Email</button>-->
 						</div>
 					</div>
-				</div>
-				<div class="col-md-3">
-					<ul class="social-icons">
-						<li>
-							<a href="#"><i class="icon-twitter-with-circle"></i></a>
-							<a href="#"><i class="icon-facebook-with-circle"></i></a>
-							<a href="#"><i class="icon-instagram-with-circle"></i></a>
-							<a href="#"><i class="icon-linkedin-with-circle"></i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
+					<div class="row" style="margin-top: 1em; text-align: center">
+						<div class="col-md-12">
+							<a routerLink="/signup" routerLinkActive="active" class="alc">No account? <strong>Create one here</strong></a>
+						</div>
+					</div>
+				</div> 
+			</div> 
 		</div>
-	</footer>
-
-</div> 
-</div> 
+	</div> 
+</div>

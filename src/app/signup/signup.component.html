@@ -1,17 +1,46 @@
-<div class="form-container">
-  <a routerLink="/login" id="goback">Go back</a>
-
-  <h2>Register Now</h2>
-
-  <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
-    
-  <form #formData='ngForm' (ngSubmit)="addUser(formData)">
- <input type="text" placeholder="First Name" (ngModel)="firstname" name="firstname" class="txt" required>
-  <input type="text" placeholder="Last Name" (ngModel)="lastname" name="lastname" class="txt" required>
-    <input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="txt" required>
-    <input type="password" placeholder="Password" (ngModel)="password" name="password" class="txt" required>
-
-
-    <button type="submit" [disabled]="!formData.valid" class="basic-btn">Create my account</button>
-  </form>
+<div id="signup">
+  <div class="fh5co-parallax">
+	<div class="fh5co-overlay"></div>
+		<div class="fh5co-parallax-cover" style="background-image: url(assets/images/slider1.jpg);" data-stellar-background-ratio="0.3">
+		<div class="desc container">
+			<div class="row">
+				<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+					<div class="fh5co-intro fh5co-table-cell">
+						<h1 class="text-center">Register Now</h1>
+						<p>Create and account and start saving!</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </div>
+	<div id="fh5co-contact-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4 col-md-offset-4">
+						<span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+						<form #formData='ngForm' (ngSubmit)="addUser(formData)">
+							<div class="form-group">
+								<input type="text" placeholder="First Name" (ngModel)="firstname" name="firstname" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Last Name" (ngModel)="lastname" name="lastname" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<input type="text" placeholder="Email address.." (ngModel)="email" name="email" class="form-control" required>
+							</div>
+							<div class="form-group">
+								<input type="password" placeholder="Password" (ngModel)="password" name="password" class="form-control" required>
+							</div>
+							<button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Create my account</button>
+						</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12" style="margin-top: 1em; text-align: center">
+						<a routerLink="/business-signup" routerLinkActive="active" class="alc">Become a Partner. <strong>Click here.</strong></a>
+					</div>
+				</div>
+			</div>
+	</div>
 </div>

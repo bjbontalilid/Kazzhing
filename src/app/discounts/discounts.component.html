@@ -1,0 +1,111 @@
+<div id="discounts">
+	<div class="fh5co-parallax">
+		<div class="fh5co-overlay"></div>
+		<div class="fh5co-parallax-cover" style="background-image: url(assets/images/slider1.jpg);" data-stellar-background-ratio="0.3">
+			<div class="desc container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+						<div class="fh5co-intro fh5co-table-cell">
+							<h1 class="text-center">Discounts</h1>
+              <span *ngIf="currentUser">
+                Hi {{ currentUser }}!
+                <ul class="header-links">
+                  <li><a routerLink="/corporate-profile">User Profile</a></li>
+                  <li><a (click)="logout()">Logout</a></li>
+                </ul>
+              </span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div *ngIf="discounts?.length > 0" id="fh5co-discounts">
+		<div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+          <h3>Hot Deals</h3>
+          <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+        </div>
+      </div>
+			<div class="row">
+        <div *ngFor="let discount of discounts" class="col-md-3 col-sm-4 fh5co-tours animate-box" data-animate-effect="fadeIn">
+						<div href="#"><img src="assets/images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+							<div class="desc">
+								<span></span>
+								<h3>{{discount.name}}</h3>
+								<span>{{discount.description}}</span>
+								<span class="price"><span *ngIf="discount.discount_type=='fixed'">PHP </span>{{discount.amount}}<span *ngIf="discount.discount_type=='percentage'">%</span></span>
+                <a *ngIf="!currentUser" class="btn btn-primary btn-outline" routerLink="/login">Login to Avail <i class="icon-arrow-right22"></i></a>
+								<button *ngIf="currentUser" class="btn btn-primary btn-outline" (click)="availDiscount(theUserID,discount.$key)">Avail Now <i class="icon-arrow-right22"></i></button>
+							</div>
+						</div>
+					</div>
+        </div>
+		</div>
+  </div>
+</div>
+<!--
+<div class="form-container" id="toolbar">
+    <header [@fallIn]="state">
+      <button (click)="logout()" class="basic-btn">Logout</button>
+    </header>
+    <div id="page" [@moveInLeft]="state">
+      <h2>Hi {{ currentUser }}!</h2>
+
+      <div *ngIf="discounts?.length > 0 && userdiscounts?.length == 0">
+        <table cellpadding="3" cellspacing="3">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Company</th>
+              <th>Amount</th>
+              <th>Description</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let discount of discounts">
+              <td>{{discount.name}}</td>
+              <td>{{discount.company_id}}</td>
+              <td><span *ngIf="discount.discount_type=='fixed'">PHP </span>{{discount.amount}}<span *ngIf="discount.discount_type=='percentage'">%</span></td>
+              <td>{{discount.description}}</td>
+              <td>
+                <button (click)="availDiscount(theUserID,discount.$key)" class="button secondary">Avail</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+		  </div>
+      <div *ngIf="userdiscounts?.length > 0">
+        **My Discounts**
+        <table cellpadding="3" cellspacing="3">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Company</th>
+              <th>Amount</th>
+              <th>Description</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <template ngFor let-a [ngForOf]="discounts" let-i="index">
+                <template ngFor let-b [ngForOf]="userdiscounts" let-j="index">
+                  <tr *ngIf="(a.$key != b.discountID)">
+                    <td>{{a.name}}</td>
+                    <td>{{a.company_id}}</td>
+                    <td><span *ngIf="a.discount_type=='fixed'">PHP </span>{{a.amount}}<span *ngIf="a.discount_type=='percentage'">%</span></td>
+                    <td>{{a.description}}</td>
+                    <td>
+                      <button (click)="availDiscount(theUserID,a.$key)" class="button secondary">Avail</button>
+                    </td>
+                  </tr>
+                </template>
+            </template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+</div>-->

@@ -4,6 +4,7 @@ import {FirebaseService} from './services/firebase.service';
 import { Router } from '@angular/router';
 import { moveIn, fallIn } from './router.animations';
 import {Users} from './Users';
+import {Company} from './company';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,7 @@ export class AppComponent implements OnInit{
   title = 'app works!';
 
   users:Users[];
+  company: Company[];
 
   constructor(private _firebaseService:FirebaseService) {
   
@@ -25,7 +27,10 @@ ngOnInit(){
       this.users = users;
      //  console.log(this.users);
     });
-   
+    this._firebaseService.getCompany().subscribe(company => {
+      this.company = company;
+     //  console.log(this.users);
+    });
 
   }
 

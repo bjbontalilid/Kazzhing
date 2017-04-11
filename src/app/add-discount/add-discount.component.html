@@ -1,0 +1,54 @@
+<div id="add-discount">
+	<div class="fh5co-parallax">
+		<div class="fh5co-overlay"></div>
+		<div class="fh5co-parallax-cover" style="background-image: url(assets/images/slider1.jpg);" data-stellar-background-ratio="0.3">
+			<div class="desc container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+						<div class="fh5co-intro fh5co-table-cell">
+							<h1 class="text-center">Add Discount</h1>
+              <h3>Hi {{ currentUser }}!</h3>
+              <ul class="header-links">
+                <li><a routerLink="/corporate-profile">User Profile</a></li>
+                <li><a (click)="logout()">Logout</a></li>
+              </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div id="fh5co-contact-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+          <a routerLink="/corporate-members" id="goback">Go back</a>
+          <h2 style="text-align: center">Add Discount</h2>
+          <span class="error" *ngIf="error" [@fallIn]='state'>{{ error }}</span>
+          <form #formData='ngForm' (ngSubmit)="addDiscountSubmit(formData)">
+            <div class="form-group">
+              <input type="text" placeholder="Discount Name" (ngModel)="discount_name" name="discount_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <input type="text" placeholder="Description" (ngModel)="description" name="description" class="form-control" required>
+            </div>
+           <div class="form-group">
+            <label>
+              Discount Type<br/>
+              <select (change)="amountUnit(discounttype.value)" name="discounttype" class="form-control" (ngModel)="discounttype" #discounttype>
+                <option value="" selected>Select Discount Type</option>
+                <option value="fixed">Fixed Amount</option>
+                <option value="percentage">Percentage</option>
+              </select>
+            </label>
+           </div>
+           <div class="form-group">
+              <input class="form-control" type="text" name="amount" placeholder="Amount" (ngModel)="amount" required><span *ngIf="unit=='fixed'">PHP </span><span *ngIf="unit=='percentage'">% </span>
+           </div>
+           <button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Create Discount</button>
+          </form>
+				</div>
+			</div>
+		</div>
+  </div>
+</div>

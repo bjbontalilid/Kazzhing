@@ -10,11 +10,11 @@ import {Users} from '../Users';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
   providers: [FirebaseService],
-    animations: [moveIn(), fallIn()],
-  host: {'[@moveIn]': ''}
+  animations: [moveIn(), fallIn()],
+  //host: {'[@moveIn]': ''}
 })
 export class SignupComponent implements OnInit { 
-users:Users[];
+  users:Users[];
   state: string = '';
   error: any;
 

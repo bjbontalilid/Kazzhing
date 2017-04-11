@@ -10,16 +10,22 @@ import { MembersComponent } from './members/members.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthGuard } from './services/auth.service';
 import { routes } from './app.routes';
-import { AddEventComponent } from './add-event/add-event.component';
 import { HomeComponent } from './home/home.component';
+import { AddDiscountComponent } from './add-discount/add-discount.component';
+import { BusinessSignupComponent } from './business-signup/business-signup.component';
+import { CorporateMembersComponent } from './corporate-members/corporate-members.component';
+import { MemberDashboardComponent } from './member-dashboard/member-dashboard.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { DiscountsComponent } from './discounts/discounts.component';
 
 // Must export the config
 export const firebaseConfig = {
- apiKey: "AIzaSyARWLIA36MUInqrrL8UCNc-o1xYB9zmEfA",
-    authDomain: "ding-web.firebaseapp.com",
-    databaseURL: "https://ding-web.firebaseio.com",
-    storageBucket: "ding-web.appspot.com",
-    messagingSenderId: "133754945571"
+    apiKey: "AIzaSyD-6ZVaSo4tGUfn5MRiTWUXUKIm75Q1tkI",
+    authDomain: "kazzhing-94f99.firebaseapp.com",
+    databaseURL: "https://kazzhing-94f99.firebaseio.com",
+    storageBucket: "kazzhing-94f99.appspot.com",
+    messagingSenderId: "73505650025"
 };
 
 @NgModule({
@@ -29,8 +35,14 @@ export const firebaseConfig = {
     EmailComponent,
     MembersComponent,
     SignupComponent,
-    AddEventComponent,
-    HomeComponent
+    HomeComponent,
+    AddDiscountComponent,
+    BusinessSignupComponent,
+    CorporateMembersComponent,
+    MemberDashboardComponent,
+    HeaderComponent,
+    FooterComponent,
+    DiscountsComponent
   ],
   imports: [
     BrowserModule,
