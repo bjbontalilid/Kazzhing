@@ -45,7 +45,6 @@ export class AddDiscountComponent implements OnInit {
     })
   }
   amountUnit(unit){
-  	console.log('Unit: ' + unit);
   	this.unit = unit;
   }
   logout() {
@@ -72,9 +71,10 @@ export class AddDiscountComponent implements OnInit {
       description: formData.value.description,
       discount_type: formData.value.discounttype,
       amount: formData.value.amount,
-      company_id: this.currentUserID
+      company_id: this.currentUserID  
     }
-    console.log(newDiscount);
+    //console.log(this.currentUserID);
+    //console.log(newDiscount);
     this._firebaseService.addDiscount(newDiscount);
     this.router.navigate(['/corporate-members']);
   }

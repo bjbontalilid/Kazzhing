@@ -45,6 +45,9 @@
            <div class="form-group">
               <input class="form-control" type="text" name="amount" placeholder="Amount" (ngModel)="amount" required><span *ngIf="unit=='fixed'">PHP </span><span *ngIf="unit=='percentage'">% </span>
            </div>
+           <div class="form-group">
+             <input id="image" name="image" [(ngModel)]="image" type="file">
+           </div>
            <button type="submit" [disabled]="!formData.valid" class="btn btn-primary">Create Discount</button>
           </form>
 				</div>

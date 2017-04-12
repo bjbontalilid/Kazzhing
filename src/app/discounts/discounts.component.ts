@@ -22,17 +22,7 @@ export class DiscountsComponent implements OnInit {
   currentUserID: any;
 
   constructor(public af: AngularFire,private router: Router, private _firebaseService:FirebaseService) { 
-    this.af.auth.subscribe(auth => {
-      if(auth) {
-        this.name = auth;
-        this._firebaseService.getUsers(auth.uid).subscribe(users => {
-          this.users = users;
-          this.theUserID = users[0].regUser;
-          this.currentUser = users[0].firstname;
-          console.log(this.currentUser);
-        });
-      }
-    });
+    
   }
 
   logout() {
@@ -52,18 +42,12 @@ export class DiscountsComponent implements OnInit {
     this.router.navigateByUrl('member-dashboard');
   }
   ngOnInit() {
-    this.af.auth.subscribe(auth => {
-      if(auth) {
+    
         this._firebaseService.getDiscounts().subscribe(discounts => {
           this.discounts = discounts;
           console.log(discounts);
         });
-        this._firebaseService.getUserDiscounts(auth.uid).subscribe(userdiscounts => {
-          this.userdiscounts = userdiscounts;
-          console.log(userdiscounts);
-        });
-      }
-    });
+        
   }
 
 }

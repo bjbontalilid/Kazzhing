@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import * as firebase from 'firebase';
 import 'rxjs/add/operator/map';
 import {Users} from '../Users';
 import {Discount} from '../discount';
@@ -14,9 +15,10 @@ export class FirebaseService{
     company: FirebaseListObservable<Company[]>;
     userdiscounts: FirebaseListObservable<UserDiscount[]>;
     discount: FirebaseObjectObservable<Discount[]>;
+    folder: any;
 
     constructor(private _af: AngularFire){
-    
+        this.folder = 'discountimages';
     }
     getUsers(user:string = null){
         if(user != null){
@@ -100,7 +102,22 @@ export class FirebaseService{
         return this.discount;
     }
     addDiscount(newDiscount){
-        return this.discounts.push(newDiscount);
+        let storageRef = firebase.storage().ref();
+        for(let selectedFile of [(<HTMLInputElement>document.getElementById('image')).files[0]]){
+            let path = `/${this.folder}/${selectedFile.name}`;
+            let iRef = storageRef.child(path);
+            iRef.put(selectedFile).then((snapshot) => {
+                newDiscount.image = selectedFile.name;
+                newDiscount.path = encodeURIComponent(path);
+                return this.discounts.push(newDiscount).then((item) => {
+                    console.log(item.key); 
+                });
+            });
+        }
+        /*
+        return this.discounts.push(newDiscount).then((item) => {
+            console.log(item.key); 
+        });*/
     }
     updateDiscount(key, updDiscount){
 		return this.discounts.update( key, updDiscount);

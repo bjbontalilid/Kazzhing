@@ -7,4 +7,6 @@ export interface Discount{
     discount_type?: string;
     category?: string;
     description: string;
+    image: string;
+    path: string;
 }
