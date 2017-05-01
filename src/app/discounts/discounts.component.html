@@ -36,8 +36,8 @@
 								<h3>{{discount.name}}</h3>
 								<span>{{discount.description}}</span>
 								<span class="price"><span *ngIf="discount.discount_type=='fixed'">PHP </span>{{discount.amount}}<span *ngIf="discount.discount_type=='percentage'">%</span></span>
-                <a *ngIf="!currentUser" class="btn btn-primary btn-outline" routerLink="/login">Login to Avail <i class="icon-arrow-right22"></i></a>
-								<button *ngIf="currentUser" class="btn btn-primary btn-outline" (click)="availDiscount(theUserID,discount.$key)">Avail Now <i class="icon-arrow-right22"></i></button>
+                <a *ngIf="!theUserID" class="btn btn-primary btn-outline" routerLink="/login">Login to Avail <i class="icon-arrow-right22"></i></a>
+								<button *ngIf="theUserID" class="btn btn-primary btn-outline" (click)="availDiscount(theUserID,discount.$key)">Avail Now <i class="icon-arrow-right22"></i></button>
 							</div>
 						</div>
 					</div>

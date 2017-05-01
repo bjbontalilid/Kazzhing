@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
           //this.currentUser = users[0].firstname;
           //console.log(users.length);
           if(users.length > 0){
-            this.router.navigate(['/members']);
+            this.router.navigate(['/member-dashboard']);
           }
           else{
             this.router.navigate(['/corporate-members']);

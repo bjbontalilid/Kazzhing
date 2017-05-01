@@ -17,7 +17,7 @@
 									<li><a href="#">Django &amp; Python</a></li>
 								</ul>
 							</li>-->
-							<li><a routerLink="/discounts">Discounts</a><a *ngIf="theUserID" routerLink="/members">Discounts</a></li>
+							<li><a routerLink="/discounts">Discounts</a></li>
 							<li><a href="#">Partners</a></li>
 							<li><a href="#">Contact</a></li>
 							<li><a *ngIf="!theUserID" routerLink="/login">Login</a><a *ngIf="theUserID" (click)="logout()">Logout</a></li>
