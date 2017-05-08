@@ -71,7 +71,12 @@ export class AddDiscountComponent implements OnInit {
       description: formData.value.description,
       discount_type: formData.value.discounttype,
       amount: formData.value.amount,
-      company_id: this.currentUserID  
+      company_id: this.currentUserID,
+      company_name: this.currentUser,
+      long_description: formData.value.longdesc,
+      redemption_code: formData.value.redeemcode,
+      is_active: "1",
+      redeemed: "0"  
     }
     //console.log(this.currentUserID);
     //console.log(newDiscount);
