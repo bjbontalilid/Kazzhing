@@ -1,0 +1,61 @@
+[debug] ----------------------------------------------------------------------
+[debug] Command:      /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] CLI Version:  3.5.0
+[debug] Platform:     darwin
+[debug] Node Version: v6.9.4
+[debug] Time:         Mon May 08 2017 19:22:06 GMT+0800 (+08)
+[debug] ----------------------------------------------------------------------
+[debug] 
+[debug] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/kazzhing-94f99  
+ Mon May 08 2017 19:22:06 GMT+0800 (+08)
+[debug] <<< HTTP RESPONSE 200
+[debug] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/kazzhing-94f99/tokens  
+ Mon May 08 2017 19:22:08 GMT+0800 (+08)
+[debug] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'kazzhing-94f99'...
+[info] 
+[info] i  deploying database, functions, hosting
+[info] ✔  database: rules ready to deploy.
+[debug] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "dependencies": {
+    "firebase-admin": "^4.1.2",
+    "firebase-functions": "^0.5"
+  },
+  "private": true
+}
+[info] i  functions: ensuring necessary APIs are enabled...
+[info] i  runtimeconfig: ensuring necessary APIs are enabled...
+[debug] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/kazzhing-94f99?view=CONSUMER_VIEW  
+ Mon May 08 2017 19:22:12 GMT+0800 (+08)
+[debug] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/kazzhing-94f99?view=CONSUMER_VIEW  
+ Mon May 08 2017 19:22:12 GMT+0800 (+08)
+[debug] <<< HTTP RESPONSE 200
+[info] ✔  runtimeconfig: all necessary APIs are enabled
+[debug] <<< HTTP RESPONSE 200
+[info] ✔  functions: all necessary APIs are enabled
+[debug] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/kazzhing-94f99  
+ Mon May 08 2017 19:22:14 GMT+0800 (+08)
+[debug] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/kazzhing-94f99/apiKeys  
+ Mon May 08 2017 19:22:14 GMT+0800 (+08)
+[debug] <<< HTTP RESPONSE 200
+[debug] <<< HTTP RESPONSE 200
+[info] i  functions: preparing functions directory for uploading...
+[debug] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/kazzhing-94f99/configs  
+ Mon May 08 2017 19:22:18 GMT+0800 (+08)
+[debug] <<< HTTP RESPONSE 200
+[debug] > [functions] runtime config materialized as: {
+  "firebase": {
+    "databaseURL": "https://kazzhing-94f99.firebaseio.com",
+    "storageBucket": "kazzhing-94f99.appspot.com",
+    "apiKey": "AIzaSyCBA_5DEHzS84FoGsu99FZlleDBbJcXKBU",
+    "authDomain": "kazzhing-94f99.firebaseapp.com"
+  }
+}
+[debug] > [functions] parsed triggers: []
+[info] i  hosting: preparing dist directory for upload...
+[debug] >>> HTTP REQUEST PUT https://deploy.firebase.com/v1/hosting/kazzhing-94f99/uploads/-Kjbmui3Wb0CkFPvYGAz?fileCount=89&message=  
+ Mon May 08 2017 19:22:21 GMT+0800 (+08)

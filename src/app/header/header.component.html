@@ -20,8 +20,8 @@
 							<li><a routerLink="/discounts">Discounts</a></li>
 							<li><a href="#">Partners</a></li>
 							<li><a href="#">Contact</a></li>
-							<li><a *ngIf="!theUserID" routerLink="/login">Login</a><a *ngIf="theUserID" (click)="logout()">Logout</a></li>
-							<li><a *ngIf="!theUserID" routerLink="/signup">Signup</a></li>
+							<li><a *ngIf="!name" routerLink="/login">Login</a><a *ngIf="name" (click)="logout()">Logout</a></li>
+							<li><a *ngIf="!name" routerLink="/signup">Signup</a></li>
 						</ul>
 					</nav>
 				</div>

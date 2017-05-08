@@ -50,12 +50,12 @@ export class DiscountsComponent implements OnInit {
     this.router.navigateByUrl('member-dashboard');
   }
   ngOnInit() {
+    this._firebaseService.getDiscounts().subscribe(discounts => {
+      this.discounts = discounts;
+      console.log(discounts);
+    });
     this.af.auth.subscribe(auth => {
       if(auth) {
-        this._firebaseService.getDiscounts().subscribe(discounts => {
-          this.discounts = discounts;
-          console.log(discounts);
-        });
         this._firebaseService.getUserDiscounts(auth.uid).subscribe(userdiscounts => {
           this.userdiscounts = userdiscounts;
           console.log(userdiscounts);
