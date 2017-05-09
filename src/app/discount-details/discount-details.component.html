@@ -1,0 +1,30 @@
+<div id="discounts" *ngIf="discount">
+	<div class="fh5co-parallax">
+		<div class="fh5co-overlay"></div>
+		<div class="fh5co-parallax-cover" style="background-image: url(assets/images/slider1.jpg);" data-stellar-background-ratio="0.3">
+			<div class="desc container">
+				<div class="row">
+					<div class="col-md-12 col-md-offset-0 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+						<div class="fh5co-intro fh5co-table-cell">
+							<h1 class="text-center">{{discount.name}}</h1>
+              <p>{{discount.company_name}}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <h2>{{discount.name}}</h2>
+        <p>{{discount.description}}</p>
+        <h4><span class="price"><span *ngIf="discount.discount_type=='fixed'">PHP </span>{{discount.amount}}<span *ngIf="discount.discount_type=='percentage'">%</span></span></h4>
+        <p>{{discount.long_description}}</p>
+        <a *ngIf="!theUserID" class="btn btn-primary btn-outline" routerLink="/login">Login to Avail <i class="icon-arrow-right22"></i></a>
+				<button *ngIf="theUserID" class="btn btn-primary btn-outline" (click)="availDiscount(theUserID,discount.$key)">Avail Now <i class="icon-arrow-right22"></i></button>
+      </div>
+    </div>
+  </div>
+</div>

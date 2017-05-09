@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { AddDiscountComponent } from './add-discount/add-discount.component';
 import { MemberDashboardComponent} from './member-dashboard/member-dashboard.component';
 import { DiscountsComponent } from './discounts/discounts.component';
+import { DiscountDetailsComponent } from './discount-details/discount-details.component';
 
 
 export const router: Routes = [
@@ -26,7 +27,8 @@ export const router: Routes = [
     { path: 'corporate-members', component: CorporateMembersComponent, canActivate: [AuthGuard] },
     { path: 'add-discount', component: AddDiscountComponent, canActivate: [AuthGuard] },
     { path: 'member-dashboard', component: MemberDashboardComponent, canActivate: [AuthGuard] },
-    { path: 'discounts', component: DiscountsComponent }
+    { path: 'discounts', component: DiscountsComponent },
+    { path: 'discount/:id', component:DiscountDetailsComponent, canActivate: [AuthGuard] },
 ]
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router);

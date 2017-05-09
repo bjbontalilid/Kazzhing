@@ -18,6 +18,7 @@ import { MemberDashboardComponent } from './member-dashboard/member-dashboard.co
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { DiscountsComponent } from './discounts/discounts.component';
+import { DiscountDetailsComponent } from './discount-details/discount-details.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -42,7 +43,8 @@ export const firebaseConfig = {
     MemberDashboardComponent,
     HeaderComponent,
     FooterComponent,
-    DiscountsComponent
+    DiscountsComponent,
+    DiscountDetailsComponent
   ],
   imports: [
     BrowserModule,

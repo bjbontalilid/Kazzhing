@@ -274,19 +274,19 @@
 				</div>
 				<div class="row">
 					<div *ngFor="let discount of discounts" class="col-md-3 col-sm-4 fh5co-tours animate-box" data-animate-effect="fadeIn">
-						<div href="#"><img src="assets/images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
+						<div><img src="assets/images/place-1.jpg" alt="Free HTML5 Website Template by FreeHTML5.co" class="img-responsive">
 							<div class="desc">
-								<span></span>
+								<span>{{discount.company_name}}</span>
 								<h3>{{discount.name}}</h3>
 								<span>{{discount.description}}</span>
-								<span class="price"><span *ngIf="discount.discount_type=='fixed'">PHP </span>{{discount.amount}}<span *ngIf="discount.discount_type=='percentage'">%</span></span>
-								<button class="btn btn-primary btn-outline">Details <i class="icon-arrow-right22"></i></button>
+								<span class="price"><span *ngIf="discount.discount_type=='fixed'">PHP&nbsp;</span>{{discount.amount}}<span *ngIf="discount.discount_type=='percentage'">%</span></span>
+								<a [routerLink]="['/discount/'+discount.$key]"><button class="btn btn-primary btn-outline">Details <i class="icon-arrow-right22"></i></button></a>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-12 text-center animate-box">
-					<p><a class="btn btn-primary btn-outline btn-lg" href="#">See All Offers <i class="icon-arrow-right22"></i></a></p>
+					<p><a class="btn btn-primary btn-outline btn-lg" routerLink="/discounts">See All Offers <i class="icon-arrow-right22"></i></a></p>
 				</div>
 			</div>
 		</div>

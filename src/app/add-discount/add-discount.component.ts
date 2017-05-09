@@ -75,8 +75,7 @@ export class AddDiscountComponent implements OnInit {
       company_name: this.currentUser,
       long_description: formData.value.longdesc,
       redemption_code: formData.value.redeemcode,
-      is_active: "1",
-      redeemed: "0"  
+      is_active: "1"
     }
     //console.log(this.currentUserID);
     //console.log(newDiscount);

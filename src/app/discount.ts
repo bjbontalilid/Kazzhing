@@ -15,5 +15,4 @@ export interface Discount{
     end_date: string;
     redemption_code?: string;
     is_active?: string;
-    redeemed?: string;
 }
